@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eb12723d-f8c5-4035-880e-ed3f6265108d">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Ma_PTNBH" class="java.lang.String">
+		<defaultValueExpression><![CDATA["PTNBH005"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     PhieuTiepNhanBH."Ma_PTNBH" AS PhieuTiepNhanBH_Ma_PTNBH,
+     PhieuTiepNhanBH."NgayTao" AS PhieuTiepNhanBH_NgayTao,
+     PhieuTiepNhanBH."GhiChu" AS PhieuTiepNhanBH_GhiChu,
+     ChiTiet_PTNBH."Ma_PCTTNBH" AS ChiTiet_PTNBH_Ma_PCTTNBH,
+     ChiTiet_PTNBH."Ma_HD_Xuat" AS ChiTiet_PTNBH_Ma_HD_Xuat,
+     ChiTiet_PTNBH."LyDoLoi" AS ChiTiet_PTNBH_LyDoLoi,
+     ChiTiet_PTNBH."NgayHenTra" AS ChiTiet_PTNBH_NgayHenTra,
+     ChiTiet_PTNBH."SoLuong" AS ChiTiet_PTNBH_SoLuong,
+     ChiTiet_PTNBH."GhiChu" AS ChiTiet_PTNBH_GhiChu,
+     PhieuTiepNhanBH."MaNV" AS PhieuTiepNhanBH_MaNV,
+     HD_Xuat."Ma_HD_Xuat" AS HD_Xuat_Ma_HD_Xuat,
+     HD_Xuat."MaNV" AS HD_Xuat_MaNV,
+     HD_Xuat."MaKH" AS HD_Xuat_MaKH,
+     CTHD_Xuat."Ma_CTHD_Xuat" AS CTHD_Xuat_Ma_CTHD_Xuat,
+     CTHD_Xuat."Ma_HD_Xuat" AS CTHD_Xuat_Ma_HD_Xuat,
+     CTHD_Xuat."MaSP" AS CTHD_Xuat_MaSP,
+     SanPham."MaSP" AS SanPham_MaSP,
+     SanPham."TenSP" AS SanPham_TenSP,
+     KhachHang."MaKH" AS KhachHang_MaKH,
+     KhachHang."TenKH" AS KhachHang_TenKH,
+     KhachHang."SDT" AS KhachHang_SDT
+FROM
+     "dbo"."PhieuTiepNhanBH" PhieuTiepNhanBH INNER JOIN "dbo"."ChiTiet_PTNBH" ChiTiet_PTNBH ON PhieuTiepNhanBH."Ma_PTNBH" = ChiTiet_PTNBH."Ma_PTNBH"
+     INNER JOIN "dbo"."HD_Xuat" HD_Xuat ON ChiTiet_PTNBH."Ma_HD_Xuat" = HD_Xuat."Ma_HD_Xuat"
+     INNER JOIN "dbo"."CTHD_Xuat" CTHD_Xuat ON HD_Xuat."Ma_HD_Xuat" = CTHD_Xuat."Ma_HD_Xuat"
+     INNER JOIN "dbo"."KhachHang" KhachHang ON HD_Xuat."MaKH" = KhachHang."MaKH"
+     INNER JOIN "dbo"."SanPham" SanPham ON CTHD_Xuat."MaSP" = SanPham."MaSP"
+WHERE
+     PhieuTiepNhanBH."Ma_PTNBH" = $P{Ma_PTNBH}]]>
+	</queryString>
+	<field name="PhieuTiepNhanBH_Ma_PTNBH" class="java.lang.String"/>
+	<field name="PhieuTiepNhanBH_NgayTao" class="java.sql.Date"/>
+	<field name="PhieuTiepNhanBH_GhiChu" class="java.lang.String"/>
+	<field name="ChiTiet_PTNBH_Ma_PCTTNBH" class="java.lang.String"/>
+	<field name="ChiTiet_PTNBH_Ma_HD_Xuat" class="java.lang.String"/>
+	<field name="ChiTiet_PTNBH_LyDoLoi" class="java.lang.String"/>
+	<field name="ChiTiet_PTNBH_NgayHenTra" class="java.sql.Date"/>
+	<field name="ChiTiet_PTNBH_SoLuong" class="java.lang.Integer"/>
+	<field name="ChiTiet_PTNBH_GhiChu" class="java.lang.String"/>
+	<field name="PhieuTiepNhanBH_MaNV" class="java.lang.String"/>
+	<field name="HD_Xuat_Ma_HD_Xuat" class="java.lang.String"/>
+	<field name="HD_Xuat_MaNV" class="java.lang.String"/>
+	<field name="HD_Xuat_MaKH" class="java.lang.String"/>
+	<field name="CTHD_Xuat_Ma_CTHD_Xuat" class="java.lang.String"/>
+	<field name="CTHD_Xuat_Ma_HD_Xuat" class="java.lang.String"/>
+	<field name="CTHD_Xuat_MaSP" class="java.lang.String"/>
+	<field name="SanPham_MaSP" class="java.lang.String"/>
+	<field name="SanPham_TenSP" class="java.lang.String"/>
+	<field name="KhachHang_MaKH" class="java.lang.String"/>
+	<field name="KhachHang_TenKH" class="java.lang.String"/>
+	<field name="KhachHang_SDT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="-20" width="116" height="62" uuid="46acea71-75ff-40b1-9e3a-adcd69ea25da"/>
+				<imageExpression><![CDATA["D:\\DuAn1\\Du-An-Execu\\src\\Du_An_IMAGES\\Picture1.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="100" y="0" width="359" height="31" uuid="0347735a-cdc0-4dec-8364-4e566ff730d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PHIẾU TIẾP NHẬN BẢO HÀNH]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="936668df-7c35-4ffc-9da7-dcf2fa8f4c9b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã Phiếu ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="16a448f7-4997-4827-a380-56503da76a36"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PhieuTiepNhanBH_Ma_PTNBH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="757c923b-7549-4b66-8ce0-47609680f1fd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày Tạo ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="20" width="100" height="20" uuid="35aa849e-529c-4a71-82a4-83188d6de4e4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PhieuTiepNhanBH_NgayTao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="285" y="0" width="100" height="20" uuid="a0960949-156f-47a3-9416-fdbc762f83db"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên Khách Hàng]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="385" y="0" width="100" height="20" uuid="29356f1a-7f8f-4602-8ae3-21d6ccded4e5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KhachHang_TenKH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="285" y="20" width="100" height="20" uuid="6bae71bf-0629-4397-b5c8-9258706e6bf8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số Điện Thoại]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="385" y="20" width="100" height="20" uuid="d49c4313-dda7-4185-a99b-f9c2469bb123"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KhachHang_SDT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="46" width="555" height="1" uuid="1143903b-e1ea-4775-a346-bc7185bce4e8"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="71" height="20" uuid="08b70057-4f87-4fe3-9c29-54c4178ceaa4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã Sản Phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="0" width="78" height="20" uuid="0baee2e9-689c-40d4-8866-fbcc62eec583"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên Sản Phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="58" height="20" uuid="4bdc5808-249c-4ca0-8f52-1550059cf0e1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số Lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="0" width="100" height="20" uuid="da767f91-08be-445b-8988-acb147314eb7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lý Do Lỗi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="0" width="69" height="20" uuid="865365d3-56f1-4554-9c65-552177cc47d2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày Hẹn Trả]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="84" height="20" uuid="b6d63620-5912-46d1-98bf-6fdf5859d964"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ghi Chú]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="26" width="554" height="1" uuid="6ea1d215-8857-4ac2-b7fa-fd365615271c"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="71" height="20" uuid="8709587d-5136-4ed1-867b-cfd62eb74963"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SanPham_MaSP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="0" width="78" height="20" uuid="517c7ae6-d369-4e60-ac7f-9119f1a4cf03"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SanPham_TenSP}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="185" y="0" width="58" height="20" uuid="7b253b16-2eef-4f4e-a4d1-25d29db7d635"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ChiTiet_PTNBH_SoLuong}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="266" y="0" width="100" height="20" uuid="c0cd121f-77c3-4359-8d35-ad01fafeada3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ChiTiet_PTNBH_LyDoLoi}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="385" y="0" width="69" height="20" uuid="c40dd1fa-a2d2-42f0-9878-599605ed80cb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ChiTiet_PTNBH_NgayHenTra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="84" height="20" uuid="933e4a9f-be91-4e7e-a2bd-92604a61bbd3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ChiTiet_PTNBH_GhiChu}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="30" width="554" height="1" uuid="049de5ac-ac6f-4b38-ac90-b438fd27b94b"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="453" y="0" width="101" height="18" uuid="9fe13348-c567-44a0-8f78-7308cda23c11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Người Lập Phiếu 
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="484" y="18" width="46" height="20" uuid="1cd908b8-5619-45ea-8666-3aaaceaafc5e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[( Kí Tên )]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="14" splitType="Stretch"/>
+	</summary>
+</jasperReport>
